@@ -16,7 +16,7 @@ function Model(props) {
     transparent: true,
     reflectivity: 0.2,
     refractionRatio: 0.985,
-    color: "#000"
+    color: "#000",
   });
 
   useFrame((state) => {
@@ -60,11 +60,6 @@ const Side = () => {
       </Stage>
       <EffectComposer>
         <SSAO />
-
-        {/* <Glitch delay={[1.5, 3.5]} duration={[0.6, 1.0]} ratio={0.85} />
-        <ChromaticAberration /> */}
-        {/* <DotScreen scale={0.2} /> */}
-        {/* <Pixelation granularity={5} /> */}
       </EffectComposer>
     </Canvas>
   );
