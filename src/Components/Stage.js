@@ -7,20 +7,20 @@ import { ContactShadows } from "@react-three/drei";
 const presets = {
   rembrandt: {
     main: [1, 2, 1],
-    fill: [-2, -0.5, -2]
+    fill: [-2, -0.5, -2],
   },
   portrait: {
     main: [-1, 2, 0.5],
-    fill: [-1, 0.5, -1.5]
+    fill: [-1, 0.5, -1.5],
   },
   upfront: {
     main: [0, 2, 1],
-    fill: [-1, 0.5, -1.5]
+    fill: [-1, 0.5, -1.5],
   },
   soft: {
     main: [-2, 4, 4],
-    fill: [-1, 0.5, -1.5]
-  }
+    fill: [-1, 0.5, -1.5],
+  },
 };
 
 export function Stage({
@@ -45,7 +45,7 @@ export function Stage({
   const [{ radius, width, height }, set] = React.useState({
     radius: 0,
     width: 0,
-    height: 0
+    height: 0,
   });
 
   React.useLayoutEffect(() => {
@@ -75,7 +75,6 @@ export function Stage({
         ctrl.update();
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultControls, radius, height, width, adjustCamera]);
 
   return (
@@ -103,7 +102,7 @@ export function Stage({
         position={[
           config.main[0] * radius,
           config.main[1] * radius,
-          config.main[2] * radius
+          config.main[2] * radius,
         ]}
         intensity={intensity * 2}
         castShadow={shadows}
@@ -115,7 +114,7 @@ export function Stage({
         position={[
           config.fill[0] * radius,
           config.fill[1] * radius,
-          config.fill[2] * radius
+          config.fill[2] * radius,
         ]}
         intensity={intensity}
       />
