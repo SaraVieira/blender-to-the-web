@@ -1584,14 +1584,6 @@
     utility-types "^3.10.0"
     zustand "^3.5.1"
 
-"@react-three/postprocessing@2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@react-three/postprocessing/-/postprocessing-2.0.5.tgz#9c30e14e0766f9ceee33740682a9fcdd2cfe785a"
-  integrity sha512-0o4NjYXpqfbW03fpB2WuWA2FApoafwvqhDI2Ca1Weljbo3d/Uy3XUBB8WyZU3zWIAQbg7SzU/d03wpFSGzWzJQ==
-  dependencies:
-    postprocessing "^6.22.2"
-    react-merge-refs "^1.1.0"
-
 "@rollup/plugin-node-resolve@^7.1.1":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-7.1.3.tgz#80de384edfbd7bfc9101164910f86078151a3eca"
@@ -8944,11 +8936,6 @@ postcss@^8.1.0, postcss@^8.1.6, postcss@^8.2.1:
     colorette "^1.2.2"
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
-
-postprocessing@6.22.5, postprocessing@^6.22.2:
-  version "6.22.5"
-  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-6.22.5.tgz#e1c7fdcf444c2882cb00c371002354db2d8eeb0d"
-  integrity sha512-W0iBLyusk1xUgOdkfqEbVKPcGk4KduMpjEgiTLtj3oA4wS8YhV/7/mrOlMC2zjIGCvZHb7+IUgruWsh7KnZknQ==
 
 potpack@^1.0.1:
   version "1.0.1"

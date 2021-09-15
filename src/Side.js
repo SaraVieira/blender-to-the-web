@@ -1,23 +1,12 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import * as THREE from "three";
 import { Stage } from "./Components/Stage";
-import { EffectComposer, SSAO } from "@react-three/postprocessing";
 import { wobble, lookAt } from "./utils/animations";
 
 function Model(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/modelDraco.gltf");
-
-  const coffee = new THREE.MeshPhysicalMaterial({
-    roughness: 0.8,
-    clearcoat: 0.1,
-    transparent: true,
-    reflectivity: 0.2,
-    refractionRatio: 0.985,
-    color: "#000",
-  });
+  const { nodes, materials } = useGLTF("/model.gltf");
 
   useFrame((state) => {
     const { position, rotation } = group.current;
@@ -39,31 +28,28 @@ function Model(props) {
         receiveShadow
         geometry={nodes.mug.geometry}
         material={materials.mug}
-        position={[0.29, 2.32, -1.34]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle002.geometry}
-        material={coffee}
-        position={[0.31, 3.6, -1.34]}
-      />
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Circle002.geometry}
+          material={materials["Liquid Domain Material.001"]}
+          position={[0.02, 1.19, 0]}
+        />
+      </mesh>
     </group>
   );
 }
 
 const Side = () => {
   return (
-    <Canvas style={{ height: "90%", top: "5%" }} shadows dpr={[1, 2]}>
+    <Canvas shadows dpr={[1, 2]}>
       <Stage intensity={1} environment="night" contactShadowOpacity={1}>
         <Model />
       </Stage>
-      <EffectComposer>
-        <SSAO />
-      </EffectComposer>
     </Canvas>
   );
 };
 
 export default Side;
-useGLTF.preload("/modelDraco.gltf");
+useGLTF.preload("/model.gltf");
