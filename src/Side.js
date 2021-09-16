@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Stage } from "./Components/Stage";
 import { wobble, lookAt } from "./utils/animations";
@@ -10,7 +10,7 @@ function Model(props) {
 
   useFrame((state) => {
     const { position, rotation } = group.current;
-    position.y += (Math.cos(10000 + state.clock.elapsedTime) * Math.PI) / 1000;
+    position.y += wobble(state) / 1200;
     rotation.x += wobble(state) / 2000;
     rotation.y += wobble(state) / 1000;
     rotation.z += wobble(state) / 1000;
@@ -41,15 +41,13 @@ function Model(props) {
   );
 }
 
-const Side = () => {
-  return (
-    <Canvas shadows dpr={[1, 2]}>
-      <Stage intensity={1} environment="night" contactShadowOpacity={1}>
-        <Model />
-      </Stage>
-    </Canvas>
-  );
-};
+const Side = () => (
+  <Canvas shadows>
+    <Stage environment="night" contactShadowOpacity={1}>
+      <Model />
+    </Stage>
+  </Canvas>
+);
 
 export default Side;
 useGLTF.preload("/model.gltf");
