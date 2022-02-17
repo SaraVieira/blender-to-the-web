@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Stage, useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Stage } from "./Components/Stage";
 import { wobble, lookAt } from "./utils/animations";
 
 function Model(props) {
@@ -43,7 +42,13 @@ function Model(props) {
 
 const Side = () => (
   <Canvas shadows>
-    <Stage environment="night" contactShadowOpacity={1}>
+    <Stage
+      contactShadow={{
+        opacity: 1,
+        position: [0, -0.5, 0],
+      }}
+      environment="night"
+    >
       <Model />
     </Stage>
   </Canvas>
